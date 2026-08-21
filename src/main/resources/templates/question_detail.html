@@ -42,7 +42,7 @@
         <!--            <div th:each="err : ${#fields.allErrors()}" th:text="${err}" />-->
         <!--        </div>-->
         <!-- 수정 1줄 -->
-        <div th:replace="~{form_errors :: formErrorsFlagment}"></div>
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
         <textarea th:field="*{content}" rows="10" class="form-control"></textarea>
         <!--    수정 end-->
         <input type="submit" value="답변등록" class="btn btn-primary my-2">
