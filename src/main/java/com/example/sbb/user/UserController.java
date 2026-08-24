@@ -32,11 +32,14 @@ public class UserController {
         }
         // 중복처리 --> DB 에서 무결성 check하므로 중복시 예외 발생 --> DataIntegrityViolationException
         try {
-            userService.create(userCreateForm.getUsername(),
-                    userCreateForm.getEmail(), userCreateForm.getPassword1());
+            userService.create(userCreateForm.getUsername()
+                              ,userCreateForm.getEmail()
+                              , userCreateForm.getPassword1()
+                              );
         }catch(DataIntegrityViolationException e) {
             e.printStackTrace();
-            bindingResult.reject("signupFailed" , "이미 등록된 사용자입니다." );
+            bindingResult.reject("signupFailed"
+                                 , "이미 등록된 사용자입니다." );
             return "signup_form";
         }catch (Exception e) {
             e.printStackTrace();
@@ -46,4 +49,10 @@ public class UserController {
 
         return "redirect:/";
     }
+
+    @GetMapping("/login")
+    public String login() {
+        return "login_form";
+    }
+
 }
