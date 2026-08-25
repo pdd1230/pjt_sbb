@@ -30,5 +30,7 @@ import java.util.List;
 
         @ManyToOne
         private SiteUser author;
+
+        private LocalDateTime modifyDate;
     }
 
